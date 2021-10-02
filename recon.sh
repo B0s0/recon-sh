@@ -2,7 +2,7 @@
 
 # Recon automation script that finds all the subdomains of the given domain, manages your scans and uses eyewitness to capture screenshots.
 # used tools: subfinder, httprobe, eyewitness, nmap
-# developed by b0s0 long time ago
+# Developed by b0s0
 
 if [ $# -lt 2 ]; then
 	echo "Usage: ./recon.sh <direcrtory_name> <domain1>...<domain n>"
@@ -70,6 +70,6 @@ echo "Probing for alive subdomains.."
 cat final.txt | sort -u | httprobe -s -p https:443 | sed 's/https\?:\/\///' | tr -d ":443" > probed.txt
 
 mkdir scans
-echo "thx for using recon.sh . nmap and eyewitness will begin soon"
+echo "thx for using recon.sh developed by b0s0. Nmap and eyewitness will begin soon"
 nmap -iL probed.txt -sC -sV -oA scans/nmap.txt;
 eyewitness -f probed.txt -d $1 --all-protocols 
