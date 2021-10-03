@@ -71,5 +71,5 @@ cat final.txt | sort -u | httprobe -s -p https:443 | sed 's/https\?:\/\///' | tr
 
 mkdir scans
 echo "thx for using recon.sh developed by b0s0. Nmap and eyewitness will begin soon"
-nmap -iL probed.txt -sC -sV -oA scans/nmap.txt;
+nmap -iL probed.txt -sC -sV -oN scans/nmap.txt;
 eyewitness -f probed.txt -d $1 --all-protocols 
