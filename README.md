@@ -7,7 +7,8 @@ Automation Script that does basic recon stuff for you, manages your scans and us
  `git clone https://github.com/B0s0/recon-sh.git`<br>
  `cd recon-sh`
 
-2. Installing required tools<br>
+2. Installing required tools  
+ ![](https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kali-linux&logoColor=white)<br>
   `xargs -a tools.txt sudo apt-get install`
   
 
