@@ -13,11 +13,11 @@ fi
 echo "Initiating ....."
 dir=$1
 
-mkdir $dir 
-cd $dir
+mkdir "$dir" 
+cd "$dir"
 
 for i in $(seq 2 $#);
-do echo ${!i} >> domains.txt
+do echo "${!i}" >> domains.txt
 done
 
 echo "Gathering subdomains using subfinder..."
@@ -30,10 +30,10 @@ cat final.txt | grep -Po "(\w+\.\w+\.\w+)$" | sort -u >> subdomains.txt
 
 echo "Any out of scope subdomain or domain ? y/n"
 read ans
-if [ ${ans,,} == 'y' ]; then
+if [ "${ans,,}" == 'y' ]; then
         echo "How many?"
         read num
-        for nu in $(seq 1 $num);
+        for nu in "$(seq 1 $num)";
         do 
                 echo "Enter the subdomain that is out of scope"
                 read out_sub_dom
@@ -47,10 +47,10 @@ fi
 
 echo "Any subdomains that cannot be further enumerated to find fourth level domains? y/n"
 read answer
-if [ ${answer,,} == 'y' ]; then
+if [ "${answer,,}" == 'y' ]; then
 	echo "How many?"
 	read number
-	for n in $(seq 1 $number);
+	for n in "$(seq 1 $number)";
 	do 
 		echo "Enter the subdomain you want to exclude"
 		read sub_dom
@@ -63,7 +63,7 @@ echo "Gathering full subdomains with subfinder..."
 mkdir subdomains
 grep -v '^ *#' < subdomains.txt | while IFS= read -r domain
 do
-	subfinder -d $domain -o subdomains/$domain.txt; cat subdomains/$domain.txt | sort -u >> final.txt;
+	subfinder -d "$domain" -o subdomains/"$domain".txt; cat subdomains/"$domain".txt | sort -u >> final.txt;
 done
 
 echo "Probing for alive subdomains.."
@@ -73,4 +73,4 @@ mkdir scans
 sort -u -o probed.txt probed.txt
 echo "thx for using recon.sh developed by b0s0. Nmap and eyewitness will begin soon"
 nmap -iL probed.txt -sC -sV -oN scans/nmap.txt;
-eyewitness -f probed.txt -d $1 --web
+eyewitness -f probed.txt -d "$1" --web
