@@ -16,5 +16,5 @@ Automation Script that does basic recon stuff for you, manages your scans and us
 
 `sudo ./recon.sh <directory_name> <domain_name(s)>`
 
-Feel free to open an issue or a pull request.
+Feel free to open an issue or a pull request.<br>
 [![DeepSource](https://deepsource.io/gh/B0s0/recon-sh.svg/?label=active+issues&show_trend=true&token=u3Xtm_NACErhNnoaBPFfrHfs)](https://deepsource.io/gh/B0s0/recon-sh/?ref=repository-badge)
