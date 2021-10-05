@@ -61,7 +61,7 @@ fi
 
 echo "Gathering full subdomains with subfinder..."
 mkdir subdomains
-for domain in $(cat subdomains.txt);
+grep -v '^ *#' < subdomains.txt | while IFS= read -r domain
 do
 	subfinder -d $domain -o subdomains/$domain.txt; cat subdomains/$domain.txt | sort -u >> final.txt;
 done
