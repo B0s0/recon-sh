@@ -33,7 +33,7 @@ read ans
 if [ "${ans,,}" == 'y' ]; then
         echo "How many?"
         read num
-        for nu in "$(seq 1 $num)";
+        for nu in $(seq 1 "$num");
         do 
                 echo "Enter the subdomain that is out of scope"
                 read out_sub_dom
@@ -50,7 +50,7 @@ read answer
 if [ "${answer,,}" == 'y' ]; then
 	echo "How many?"
 	read number
-	for n in "$(seq 1 $number)";
+	for n in $(seq 1 "$number");
 	do 
 		echo "Enter the subdomain you want to exclude"
 		read sub_dom
