@@ -67,7 +67,7 @@ do
 done
 
 echo "Probing for alive subdomains.."
-cat final.txt | sort -u | httprobe -s -p https:443 | sed 's/https\?:\/\///' | tr -d ":443" > probed.txt
+sort -u final.txt | httprobe -s -p https:443 | sed 's/https\?:\/\///' | tr -d ":443" > probed.txt
 
 mkdir scans
 sort -u -o probed.txt probed.txt
