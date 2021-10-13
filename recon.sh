@@ -54,8 +54,8 @@ if [ "${answer,,}" == 'y' ]; then
 	do 
 		echo "Enter the subdomain you want to exclude"
 		read sub_dom
-		sed -i "/\<$sub_dom\>/d" subdomains.txt
-		sed -i "/.\<$sub_dom\>d" subdomains.txt
+		sed -i "/\<\$sub_dom\>/d" subdomains.txt
+		sed -i "/.\<\$sub_dom\>/d" subdomains.txt
 	done
 fi
 
